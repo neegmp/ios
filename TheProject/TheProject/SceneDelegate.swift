@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  Home
+//  TheProject
 //
-//  Created by santhosh on 06/04/20.
+//  Created by santhosh on 08/04/20.
 //  Copyright © 2020 TDF. All rights reserved.
 //
 
@@ -20,9 +20,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
+        let contentView = ContentView()
 
         // Use a UIHostingController as window root view controller.
-        
+        if let windowScene = scene as? UIWindowScene {
+            let window = UIWindow(windowScene: windowScene)
+            window.rootViewController = UIHostingController(rootView: contentView)
+            self.window = window
+            window.makeKeyAndVisible()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
